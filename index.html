@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="VIGOR-MPC: Vision-Guided Objective Regulation MPC ">
+  <meta name="description" content="VIGOR-MPC: Vision-Guided Objective Regulation MPC">
   <meta name="keywords" content="Imitation Learning, Model Predictive Control, Context-Dependent Control">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ZipMPC</title>
@@ -31,24 +31,24 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">ZipMPC</h1>
-            <h3 class="title is-4">Compressed Context-Dependent MPC Cost via Imitation Learning</h3>
+            <h1 class="title is-1 publication-title">VIGOR-MPC</h1>
+            <h3 class="title is-4">Vision-Guided Objective Regulation MPC</h3>
             <div class="is-size-5 publication-authors">
               <!--span class="author-block">Author names omitted for anonymous review</span-->
+              <a href="https://scholar.google.com/citations?user=QkB5zqUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+                Jelena Trisovic, 
+              </a>
               <a href="https://scholar.google.ch/citations?hl=de&user=4pRRiYIAAAAJ" target="_blank" rel="noopener noreferrer">
                 Rahel Rickenbach, 
               </a>
-              <a href="https://scholar.google.ch/citations?hl=de&user=CUQbNfIAAAAJ" target="_blank" rel="noopener noreferrer">
-                Alan Lahoud, 
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                Marek Landert, 
               </a>
-              <a href="https://scholar.google.ch/citations?hl=de&user=ND_3IrkAAAAJ" target="_blank" rel="noopener noreferrer">
-                Erik Schaffernicht, 
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                Panagiotis Minos,  
               </a>
               <a href="https://scholar.google.ch/citations?hl=de&user=BSf9OLAAAAAJ" target="_blank" rel="noopener noreferrer">
                 Melanie N. Zeilinger 
-              </a>
-              <a href="https://scholar.google.ch/citations?hl=de&user=4HtJjKAAAAAJ" target="_blank" rel="noopener noreferrer">
-                Johannes A. Stork,  
               </a>
             </div>
             <div class="column has-text-centered">
@@ -62,7 +62,7 @@
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/2507.13088" class="external-link button is-normal is-rounded is-dark">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
@@ -70,7 +70,7 @@
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="https://github.com/AlanLahoud/ZipMPC" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://github.com/VIGOR-MPC/codebase/" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
@@ -89,7 +89,7 @@
     <div class="container is-max-desktop">
       <div class="hero-body">
         <h2 class="subtitle has-text-centered">
-          ZipMPC is a novel method that imitates a long-horizon MPC behaviour by learning a compressed and context-dependent cost function for a short-horizon MPC.
+          VIGOR-MPC is a modular student–teacher framework, agnostic to the perception pipeline, which addresses reference tracking accross navigation tasks by distilling a privileged, field-of-view-aware long-horizon MPC into a computationally lightweight short-horizon MPC whose cost parameters are determined online from vision.
         </h2>
       </div>
     </div>
@@ -102,9 +102,11 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              The computational burden of model predictive control (MPC) limits its application on real-time systems, such as robots, and often requires the use of short prediction horizons.
-              This not only affects the control performance, but also increases the difficulty of designing MPC cost functions that reflect the desired long-term objective.
-              ZipMPC presents a novel method that imitates a long-horizon MPC behaviour by learning a compressed and context-dependent cost function for a short-horizon MPC. It improves performance over alternative methods, such as approximate explicit MPC and automatic cost parameter tuning in terms of optimizing the long-term objective; maintaining computational costs comparable to a short-horizon MPC; ensuring constraint satisfaction; and generalizing control behaviour to environments not observed during training.
+              Controlling an agent in an environment solely perceived through onboard vision is challenging: perception yields noisy, variable-length, and partially occluded context, while onboard compute is shared between perception and control, limiting the planning horizon executable in real time. 
+              We propose VIGOR-MPC, a modular student–teacher framework, agnostic to the perception pipeline, which addresses reference tracking accross navigation tasks by distilling a privileged, field-of-view-aware long-horizon MPC into a computationally lightweight short-horizon MPC whose cost parameters are determined online from vision. 
+              The teacher operates in simulation with full state knowledge and a multi-trajectory formulation that guarantees the agent can stay within its field of view. 
+              The student observes only the noisy, occluded context produced by a perception module and learns, via a multi-level recurrent mapping, to infer cost parameters that aim to recover the teacher's behavior despite missing information. We evaluate VIGOR-MPC on vision-based autonomous racing in simulation and on hardware. 
+              Using only onboard perception of the track, VIGOR-MPC generalizes to tracks unseen during training and approaches the lap times of the privileged long-horizon teacher while reducing per-step computation by over  90%.
             </p>
           </div>
         </div>
@@ -124,7 +126,7 @@
           <!-- Full-width video block -->
           <div style="margin-top: 1.5rem;">
             <video controls style="width: 100%;">
-              <source src="./static/ZipMPC_Videos/zipMPC_presentation.mp4" type="video/mp4">
+              <source src="./static/videos/vigor_mpc_video.mp4" type="video/mp4">
             </video>
           </div>
         </div>
@@ -137,10 +139,10 @@
       <div class="columns is-centered has-text-centered">
         <div class="column">
           <h2 class="title is-3">Model Overview</h2>
-          <img src="./static/images_rahel/explanatory_figure.svg" alt="ZipMPC explained" style="width:100%">
+          <img src="./static/images/vigor_mpc_main_fixed_typos.svg" alt="ZipMPC explained" style="width:100%">
           <div class="content has-text-justified">
             <p>
-              ZipMPC imitates long-horizon MPC behaviour by learning a compressed and context-dependent cost for a short-horizon MPC. It thereby combines the faster inference times of explicit MPC with the generalization and constraint recognition capabilities of automatic cost parameter tuning.
+              Overview of the VIGOR-MPC framework. The student employs a predefined, parameterized MPC structure whose cost parameters are generated by a memory-capable neural network from noisy and partial environmental observations. The mapping is trained via imitation learning using a privileged teacher with full environmental knowledge. The vision-based challenges addressed by the framework, together with the resulting control requirements, are illustrated on the right.
             </p>
           </div>
         </div>
@@ -148,42 +150,12 @@
     </div>
   </section>
 
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column">
-          <h2 class="title is-3">Results</h2>
-           <!-- Text block with limited width -->
-          <div class="content" style="max-width: 950px; margin: 0 auto; text-align: left;">
-            <p>
-              Applying ZipMPC on hardware, it can be seen how it incorporates the additional contextual information to improve racing performance in comparison to a standard MPC controller of identical horizon length and closely imitates the performance of a long horizon MPC.
-            </p>
-          </div>
-
-          <!-- Full-width video block -->
-          <div style="margin-top: 1.5rem;">
-            <video controls style="width: 49%;">
-              <source src="./static/ZipMPC_Videos/ZipMPC_real_world_1.mp4" type="video/mp4">
-            </video>
-            <video controls style="width: 49%;">
-              <source src="./static/ZipMPC_Videos/ZipMPC_real_world_2.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code>
-@article{rickenbach2025zipmpc,
-  title={ZipMPC: Compressed Context-Dependent MPC Cost via Imitation Learning},
-  author={Rickenbach, Rahel and Lahoud, Alan A and Schaffernicht, Erik and Zeilinger, Melanie N and Stork, Johannes A},
-  journal={arXiv preprint arXiv:2507.13088},
-  year={2025}
-}
+TBD
 </code></pre>
     </div>
   </section>
