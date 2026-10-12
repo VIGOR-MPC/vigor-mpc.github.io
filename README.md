@@ -1,1 +1,1 @@
-# zipmpc.github.io
+# vigor-mpc.github.io
